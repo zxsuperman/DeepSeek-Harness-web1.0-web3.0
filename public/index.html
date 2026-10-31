@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#050806">
+  <title>WEB/EVOLUTION — 互联网权限变更史</title>
+  <meta name="description" content="一个极客终端与报纸特辑混合的 Web 进化档案：从 Web 1.0 的只读浏览，到 Web 2.0 的平台参与，再到 Web 3.0 的去中心化所有权实验；附完整时间轴与纪年表。">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body data-view="directory" data-era="index">
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <canvas id="matrix-canvas" class="matrix-canvas" aria-hidden="true"></canvas>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="screen-glow" aria-hidden="true"></div>
+
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="topbar-group">
+        <span class="traffic" aria-hidden="true"><i></i><i></i><i></i></span>
+        <a class="top-logo" href="#/">W<span class="sr-only"> 返回目录</span></a>
+        <span class="top-path">guest@evolution:<span class="path-tilde">~</span><span id="top-path">/</span></span>
+      </div>
+
+      <a class="topbar-center" href="#/chronicle">CHRONICLE // 1991—NOW</a>
+
+      <div class="topbar-group topbar-right">
+        <span class="online"><i aria-hidden="true"></i> ONLINE</span>
+        <time id="clock" datetime="">--:--:--</time>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="view directory-view" id="directory-view" aria-labelledby="directory-title">
+        <div class="dir-scene" id="dir-scene">
+          <div class="dir-plane" id="dir-plane">
+            <div class="dir-top">
+              <div class="dir-copy">
+                <p class="cmd"><span class="cmd-user">guest@evolution:~$</span> ls -la ./eras</p>
+                <div class="archive-line">
+                  <span>[ ARCHIVE_001 ]</span>
+                  <span>ACCESS: PUBLIC</span>
+                </div>
+                <h1 class="dir-title" id="directory-title">WEB<span class="title-slash">/</span>EVOLUTION</h1>
+                <p class="dir-lede">互联网的权限变更史。<br>三个目录，三次权力转移。</p>
+              </div>
+
+              <aside class="sys-panel" aria-label="系统状态">
+                <div class="panel-bar">
+                  <span>system.log</span>
+                  <span class="live"><i aria-hidden="true"></i> LIVE</span>
+                </div>
+                <div class="sys-body">
+                  <p><span>ARCHIVE</span><b>MOUNTED</b></p>
+                  <p><span>ENTRIES</span><b>03</b></p>
+                  <p><span>FORMAT</span><b>HTML / SVG</b></p>
+                  <p><span>LAST_ACCESS</span><b id="last-access">none</b></p>
+                </div>
+                <div class="mini-timeline" aria-label="互联网权限变化概览">
+                  <div><b>1991</b><span>READ</span></div>
+                  <div><b>2004</b><span>WRITE</span></div>
+                  <div><b>2020</b><span>OWN</span></div>
+                  <div><b>NOW</b><span>NEXT</span></div>
+                </div>
+              </aside>
+            </div>
+
+            <div class="dir-block">
+              <div class="dir-columns" aria-hidden="true">
+                <span>PERM</span>
+                <span>ID</span>
+                <span>DIRECTORY</span>
+                <span>MODE</span>
+                <span>PERIOD</span>
+                <span>ACTION</span>
+              </div>
+
+              <nav class="dir-list" aria-label="Web 时代目录">
+                <a class="dir-row dir-row-web1" href="#/web1" data-era="web1">
+                  <span class="dir-perm">drwxr-xr-x</span>
+                  <span class="dir-index">01</span>
+                  <span class="dir-name">web1.0<small>只读时代 / 信息目录</small></span>
+                  <span class="dir-mode"><i aria-hidden="true"></i>READ_ONLY</span>
+                  <span class="dir-period">1991—2004</span>
+                  <span class="dir-action">OPEN <b aria-hidden="true">↗</b></span>
+                </a>
+
+                <a class="dir-row dir-row-web2" href="#/web2" data-era="web2">
+                  <span class="dir-perm">drwxrwxr-x</span>
+                  <span class="dir-index">02</span>
+                  <span class="dir-name">web2.0<small>可写时代 / 平台网络</small></span>
+                  <span class="dir-mode"><i aria-hidden="true"></i>READ_WRITE</span>
+                  <span class="dir-period">2004—2020</span>
+                  <span class="dir-action">OPEN <b aria-hidden="true">↗</b></span>
+                </a>
+
+                <a class="dir-row dir-row-web3" href="#/web3" data-era="web3">
+                  <span class="dir-perm">drwxrwxrwx</span>
+                  <span class="dir-index">03</span>
+                  <span class="dir-name">web3.0<small>可拥有时代 / 开放网络</small></span>
+                  <span class="dir-mode"><i aria-hidden="true"></i>READ_WRITE_OWN</span>
+                  <span class="dir-period">2020—NOW</span>
+                  <span class="dir-action">OPEN <b aria-hidden="true">↗</b></span>
+                </a>
+              </nav>
+            </div>
+          </div>
+        </div>
+
+        <div class="dir-foot">
+          <p class="prompt-line"><span class="cmd-user">guest@evolution:~$</span> select_a_directory <span class="cursor" aria-hidden="true">_</span></p>
+          <a class="chronicle-link" href="#/chronicle"><span>[ CHRONICLE ]</span> 时间轴 + 纪年表 <b aria-hidden="true">→</b></a>
+          <p class="dir-note">READ_ONLY → READ_WRITE → READ_WRITE_OWN</p>
+        </div>
+      </section>
+
+      <section class="view detail-view" id="detail-view" aria-labelledby="doc-title" hidden>
+        <div class="detail-layout">
+          <aside class="side-panel" aria-label="时代目录导航">
+            <div class="side-head">
+              <span>INDEX</span>
+              <span>03</span>
+            </div>
+            <nav class="side-nav">
+              <a class="side-link" href="#/web1" data-era="web1">
+                <span class="side-index">01</span>
+                <span class="side-name">web1.0<small>READ_ONLY</small></span>
+                <span class="side-arrow" aria-hidden="true">→</span>
+              </a>
+              <a class="side-link" href="#/web2" data-era="web2">
+                <span class="side-index">02</span>
+                <span class="side-name">web2.0<small>READ_WRITE</small></span>
+                <span class="side-arrow" aria-hidden="true">→</span>
+              </a>
+              <a class="side-link" href="#/web3" data-era="web3">
+                <span class="side-index">03</span>
+                <span class="side-name">web3.0<small>READ_WRITE_OWN</small></span>
+                <span class="side-arrow" aria-hidden="true">→</span>
+              </a>
+            </nav>
+            <a class="side-back" href="#/">[ cd .. ]</a>
+            <a class="side-chronicle" href="#/chronicle">[ timeline ]</a>
+            <div class="side-help">
+              <p><kbd>ESC</kbd> RETURN</p>
+              <p><kbd>←</kbd><kbd>→</kbd> SWITCH</p>
+            </div>
+          </aside>
+
+          <article class="paper article-paper">
+            <div class="paper-ribbon">
+              <span>THE WEB CHRONICLE</span>
+              <span class="ribbon-path">~/eras/<b id="doc-dir">web1.0</b>/README.md</span>
+              <span>ERA REPORT / <b id="doc-index">01</b></span>
+            </div>
+
+            <header class="paper-header">
+              <div class="paper-kicker">
+                <span class="paper-section">ERA REPORT</span>
+                <span>WEB <b id="doc-version">1.0</b></span>
+                <span id="doc-period">1991—2004</span>
+                <span id="doc-mode">READ_ONLY</span>
+              </div>
+              <h1 class="paper-headline" id="doc-title" tabindex="-1"></h1>
+              <p class="paper-deck" id="doc-summary"></p>
+              <div class="paper-byline">
+                <span>BY <b>ARCHIVE DESK</b></span>
+                <span>档案编辑部 / 互联网史组</span>
+                <span>READING <b id="doc-reading">7 MIN</b></span>
+              </div>
+            </header>
+
+            <div class="paper-grid">
+              <aside class="paper-aside" aria-label="时代资料">
+                <section class="aside-block">
+                  <h2 class="aside-title">AT A GLANCE</h2>
+                  <dl class="paper-meta" id="doc-meta"></dl>
+                </section>
+                <section class="aside-block">
+                  <h2 class="aside-title">KEY DATES</h2>
+                  <ol class="aside-dates" id="doc-keydates"></ol>
+                </section>
+                <section class="aside-block">
+                  <h2 class="aside-title">STACK</h2>
+                  <div class="paper-chips" id="doc-tags"></div>
+                </section>
+              </aside>
+
+              <div class="paper-main">
+                <div class="article-text" id="doc-body"></div>
+                <blockquote class="paper-quote" id="doc-quote"></blockquote>
+              </div>
+            </div>
+
+            <section class="decentralization" id="doc-decentralization" aria-labelledby="doc-dec-title" hidden>
+              <div class="dec-head">
+                <span class="dec-kicker">WEB 3.0 / THE CORE</span>
+                <h2 id="doc-dec-title">去中心化，才是 Web3 的底色</h2>
+              </div>
+              <p class="dec-lede" id="doc-dec-lede"></p>
+              <div class="dec-grid" id="doc-dec-points"></div>
+              <blockquote class="dec-quote" id="doc-dec-quote"></blockquote>
+              <p class="dec-caveat" id="doc-dec-caveat"></p>
+            </section>
+
+            <figure class="paper-figure">
+              <div class="figure-bar">
+                <span>FIG. <b id="map-figure">01</b> / NETWORK TOPOLOGY</span>
+                <span id="map-mode">ONE-WAY</span>
+              </div>
+              <div class="diagram-stage">
+                <div class="diagram" data-diagram="web1">
+                    <svg class="diagram-svg" viewbox="0 0 560 360" role="img" aria-label="示意图：Web 1.0 中，内容由中心网站单向分发给多位读者">
+                      <defs>
+                        <marker id="arrow-w1" viewbox="0 0 10 10" refx="8" refy="5" markerwidth="5.5" markerheight="5.5" orient="auto-start-reverse">
+                          <path d="M 0 0 L 10 5 L 0 10 z"></path>
+                        </marker>
+                        <pattern id="grid-w1" width="32" height="32" patternunits="userSpaceOnUse">
+                          <path d="M 32 0 L 0 0 0 32" fill="none" stroke="rgba(255,255,255,.05)" stroke-width="1"></path>
+                        </pattern>
+                      </defs>
+                      <rect width="560" height="360" fill="url(#grid-w1)"></rect>
+                      <circle class="node-halo" cx="280" cy="92" r="78"></circle>
+                      <circle class="node-core" cx="280" cy="92" r="54"></circle>
+                      <text class="svg-title" x="280" y="87" text-anchor="middle">SERVER</text>
+                      <text class="svg-sub" x="280" y="108" text-anchor="middle">网站 / 门户</text>
+                      <g class="diagram-links">
+                        <line x1="280" y1="148" x2="78" y2="260" marker-end="url(#arrow-w1)"></line>
+                        <line x1="280" y1="148" x2="179" y2="260" marker-end="url(#arrow-w1)"></line>
+                        <line x1="280" y1="148" x2="280" y2="260" marker-end="url(#arrow-w1)"></line>
+                        <line x1="280" y1="148" x2="381" y2="260" marker-end="url(#arrow-w1)"></line>
+                        <line x1="280" y1="148" x2="482" y2="260" marker-end="url(#arrow-w1)"></line>
+                      </g>
+                      <g class="reader-nodes">
+                        <circle cx="78" cy="282" r="22"></circle>
+                        <circle cx="179" cy="282" r="22"></circle>
+                        <circle cx="280" cy="282" r="22"></circle>
+                        <circle cx="381" cy="282" r="22"></circle>
+                        <circle cx="482" cy="282" r="22"></circle>
+                      </g>
+                      <g class="svg-tiny" text-anchor="middle">
+                        <text x="78" y="286">R</text>
+                        <text x="179" y="286">R</text>
+                        <text x="280" y="286">R</text>
+                        <text x="381" y="286">R</text>
+                        <text x="482" y="286">R</text>
+                      </g>
+                      <text class="svg-micro" x="280" y="335" text-anchor="middle">一对多广播 · 内容由站点控制</text>
+                    </svg>
+                  </div>
+
+                  <div class="diagram" data-diagram="web2" hidden>
+                    <svg class="diagram-svg" viewbox="0 0 560 360" role="img" aria-label="示意图：Web 2.0 中，用户与中心平台双向互动，平台聚合内容与数据">
+                      <defs>
+                        <marker id="arrow-w2-end" viewbox="0 0 10 10" refx="8" refy="5" markerwidth="5.5" markerheight="5.5" orient="auto">
+                          <path d="M 0 0 L 10 5 L 0 10 z"></path>
+                        </marker>
+                        <marker id="arrow-w2-start" viewbox="0 0 10 10" refx="2" refy="5" markerwidth="5.5" markerheight="5.5" orient="auto-start-reverse">
+                          <path d="M 0 0 L 10 5 L 0 10 z"></path>
+                        </marker>
+                        <pattern id="grid-w2" width="32" height="32" patternunits="userSpaceOnUse">
+                          <path d="M 32 0 L 0 0 0 32" fill="none" stroke="rgba(255,255,255,.05)" stroke-width="1"></path>
+                        </pattern>
+                      </defs>
+                      <rect width="560" height="360" fill="url(#grid-w2)"></rect>
+                      <circle class="orbit-ring" cx="280" cy="180" r="136"></circle>
+                      <g class="diagram-links">
+                        <line x1="280" y1="180" x2="94" y2="86" marker-start="url(#arrow-w2-start)" marker-end="url(#arrow-w2-end)"></line>
+                        <line x1="280" y1="180" x2="466" y2="86" marker-start="url(#arrow-w2-start)" marker-end="url(#arrow-w2-end)"></line>
+                        <line x1="280" y1="180" x2="74" y2="260" marker-start="url(#arrow-w2-start)" marker-end="url(#arrow-w2-end)"></line>
+                        <line x1="280" y1="180" x2="486" y2="260" marker-start="url(#arrow-w2-start)" marker-end="url(#arrow-w2-end)"></line>
+                        <line x1="280" y1="180" x2="168" y2="324" marker-start="url(#arrow-w2-start)" marker-end="url(#arrow-w2-end)"></line>
+                        <line x1="280" y1="180" x2="392" y2="324" marker-start="url(#arrow-w2-start)" marker-end="url(#arrow-w2-end)"></line>
+                      </g>
+                      <rect class="platform-core" x="178" y="108" width="204" height="144" rx="24"></rect>
+                      <text class="svg-title" x="280" y="166" text-anchor="middle">PLATFORM</text>
+                      <text class="svg-sub" x="280" y="190" text-anchor="middle">平台</text>
+                      <text class="svg-micro" x="280" y="218" text-anchor="middle">账号 · 推荐 · 数据</text>
+                      <g class="user-nodes">
+                        <circle cx="94" cy="86" r="24"></circle>
+                        <circle cx="466" cy="86" r="24"></circle>
+                        <circle cx="74" cy="260" r="24"></circle>
+                        <circle cx="486" cy="260" r="24"></circle>
+                        <circle cx="168" cy="324" r="24"></circle>
+                        <circle cx="392" cy="324" r="24"></circle>
+                      </g>
+                      <g class="svg-tiny" text-anchor="middle">
+                        <text x="94" y="90">U</text>
+                        <text x="466" y="90">U</text>
+                        <text x="74" y="264">U</text>
+                        <text x="486" y="264">U</text>
+                        <text x="168" y="328">U</text>
+                        <text x="392" y="328">U</text>
+                      </g>
+                      <text class="svg-micro" x="280" y="356" text-anchor="middle">用户创造内容，平台聚合与分发</text>
+                    </svg>
+                  </div>
+
+                  <div class="diagram" data-diagram="web3" hidden>
+                    <svg class="diagram-svg" viewbox="0 0 560 360" role="img" aria-label="示意图：Web 3.0 中，用户节点通过开放协议点对点连接，没有单一中心平台">
+                      <defs>
+                        <marker id="arrow-w3" viewbox="0 0 10 10" refx="8" refy="5" markerwidth="5.5" markerheight="5.5" orient="auto-start-reverse">
+                          <path d="M 0 0 L 10 5 L 0 10 z"></path>
+                        </marker>
+                        <pattern id="grid-w3" width="32" height="32" patternunits="userSpaceOnUse">
+                          <path d="M 32 0 L 0 0 0 32" fill="none" stroke="rgba(255,255,255,.05)" stroke-width="1"></path>
+                        </pattern>
+                      </defs>
+                      <rect width="560" height="360" fill="url(#grid-w3)"></rect>
+                      <g class="p2p-links">
+                        <path d="M280 52 L432 122 L432 250 L280 320 L128 250 L128 122 Z"></path>
+                        <path d="M280 52 L280 320"></path>
+                        <path d="M432 122 L128 250"></path>
+                        <path d="M432 250 L128 122"></path>
+                      </g>
+                      <circle class="protocol-ring" cx="280" cy="186" r="40"></circle>
+                      <text class="svg-micro protocol-label" x="280" y="183" text-anchor="middle">OPEN</text>
+                      <text class="svg-micro protocol-label" x="280" y="200" text-anchor="middle">PROTOCOL</text>
+                      <g class="wallet-nodes">
+                        <circle cx="280" cy="52" r="28"></circle>
+                        <circle cx="432" cy="122" r="28"></circle>
+                        <circle cx="432" cy="250" r="28"></circle>
+                        <circle cx="280" cy="320" r="28"></circle>
+                        <circle cx="128" cy="250" r="28"></circle>
+                        <circle cx="128" cy="122" r="28"></circle>
+                      </g>
+                      <g class="svg-tiny" text-anchor="middle">
+                        <text x="280" y="56">YOU</text>
+                        <text x="432" y="126">DAO</text>
+                        <text x="432" y="254">NFT</text>
+                        <text x="280" y="324">DAPP</text>
+                        <text x="128" y="254">DATA</text>
+                        <text x="128" y="126">TOKEN</text>
+                      </g>
+                      <text class="svg-micro" x="280" y="357" text-anchor="middle">点对点连接 · 规则写在开放协议里</text>
+                    </svg>
+                  </div>
+                
+              </div>
+              <figcaption id="map-caption"></figcaption>
+            </figure>
+
+            <section class="features-section" aria-labelledby="features-title">
+              <div class="features-head">
+                <span class="smallcap">FIELD NOTES</span>
+                <h2 id="features-title">这个时代的关键特征</h2>
+              </div>
+              <div class="feature-grid" id="doc-features"></div>
+            </section>
+
+            <div class="paper-lower">
+              <section class="paper-notes" aria-labelledby="notes-title">
+                <div class="section-label"><span>EDITOR'S NOTES</span><span>03</span></div>
+                <h2 id="notes-title">编辑部笔记</h2>
+                <ul class="notes" id="doc-notes"></ul>
+              </section>
+              <aside class="paper-products" aria-labelledby="products-title">
+                <div class="section-label"><span>REPRESENTATIVE</span><span>↗</span></div>
+                <h2 id="products-title">代表产品</h2>
+                <p class="products" id="doc-products"></p>
+                <p class="paper-limit" id="doc-limit"></p>
+              </aside>
+            </div>
+
+            <p class="paper-disclaimer">Web 3.0 不是 Web 2.0 的替代品，三者至今共存。本版为概念性档案，不构成投资建议。</p>
+
+            <footer class="paper-footer">
+              <a class="paper-nav" id="prev-dir" href="#/web3">
+                <span>← PREVIOUS ERA</span>
+                <b>web3.0</b>
+              </a>
+              <div class="paper-footer-center">
+                <a href="#/">[ ../INDEX ]</a>
+                <a href="#/chronicle">[ CHRONICLE ]</a>
+              </div>
+              <a class="paper-nav paper-nav-next" id="next-dir" href="#/web2">
+                <span>NEXT ERA →</span>
+                <b>web2.0</b>
+              </a>
+            </footer>
+            <p class="paper-eof">— END OF REPORT / 1991—NOW —</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="view chronicle-view" id="chronicle-view" aria-labelledby="chronicle-title" hidden>
+        <div class="chronicle-layout">
+          <aside class="side-panel" aria-label="纪年表导航">
+            <div class="side-head">
+              <span>CHRONICLE</span>
+              <span>04</span>
+            </div>
+            <nav class="side-nav" aria-label="时代目录">
+              <a class="side-link" href="#/web1" data-era="web1">
+                <span class="side-index">01</span>
+                <span class="side-name">web1.0<small>READ_ONLY</small></span>
+                <span class="side-arrow" aria-hidden="true">→</span>
+              </a>
+              <a class="side-link" href="#/web2" data-era="web2">
+                <span class="side-index">02</span>
+                <span class="side-name">web2.0<small>READ_WRITE</small></span>
+                <span class="side-arrow" aria-hidden="true">→</span>
+              </a>
+              <a class="side-link" href="#/web3" data-era="web3">
+                <span class="side-index">03</span>
+                <span class="side-name">web3.0<small>READ_WRITE_OWN</small></span>
+                <span class="side-arrow" aria-hidden="true">→</span>
+              </a>
+            </nav>
+            <a class="side-back" href="#/">[ cd .. ]</a>
+            <div class="side-help">
+              <p><kbd>ESC</kbd> RETURN</p>
+              <p><kbd>FILTER</kbd> ERA</p>
+            </div>
+          </aside>
+
+          <article class="paper chronicle-paper">
+            <div class="paper-ribbon">
+              <span>THE WEB CHRONICLE</span>
+              <span class="ribbon-path">~/chronicle/index</span>
+              <span>SPECIAL EDITION / 1991—NOW</span>
+            </div>
+
+            <header class="paper-header">
+              <div class="paper-kicker">
+                <span class="paper-section">SPECIAL EDITION</span>
+                <span>TIMELINE &amp; CHRONOLOGY</span>
+                <span>1991—NOW</span>
+              </div>
+              <h1 class="paper-headline" id="chronicle-title" tabindex="-1">互联网纪年<span class="headline-year">1991—NOW</span></h1>
+              <p class="paper-deck">从只读网页、平台帝国到去中心化协议：三十多年里，互联网反复改写同一个问题——谁有权发布、分发和拥有。</p>
+              <div class="paper-byline">
+                <span>BY <b>ARCHIVE DESK</b></span>
+                <span>档案编辑部 / 纪年组</span>
+                <span><b id="chronicle-count">16</b> MILESTONES</span>
+              </div>
+            </header>
+
+            <nav class="filter-bar" aria-label="按时代筛选时间轴和纪年表">
+              <span class="filter-label">FILTER /</span>
+              <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">ALL <span data-count="all">—</span></button>
+              <button class="filter-button" type="button" data-filter="web1" aria-pressed="false">WEB 1.0 <span data-count="web1">—</span></button>
+              <button class="filter-button" type="button" data-filter="web2" aria-pressed="false">WEB 2.0 <span data-count="web2">—</span></button>
+              <button class="filter-button" type="button" data-filter="web3" aria-pressed="false">WEB 3.0 <span data-count="web3">—</span></button>
+              <span class="filter-result" id="filter-result" aria-live="polite">— / —</span>
+            </nav>
+
+            <section class="timeline-section" aria-labelledby="timeline-title">
+              <div class="chronicle-section-head">
+                <span class="smallcap">TIMELINE</span>
+                <h2 id="timeline-title">一条不断重新分配权力的时间轴</h2>
+              </div>
+
+              <div class="era-band" aria-hidden="true">
+                <div class="band-web1"><b>1991—2004</b><span>READ</span></div>
+                <div class="band-web2"><b>2004—2020</b><span>READ / WRITE</span></div>
+                <div class="band-web3"><b>2020—NOW</b><span>READ / WRITE / OWN</span></div>
+              </div>
+
+              <ol class="chronicle-timeline" id="chronicle-timeline"></ol>
+            </section>
+
+            <aside class="chronicle-focus" aria-labelledby="chronicle-focus-title">
+              <span class="chronicle-focus-kicker">WEB 3.0 / THE DECENTRALIZATION TURN</span>
+              <h2 id="chronicle-focus-title">Web3 的核心不是发币，是去中心化。</h2>
+              <p>去中心化不是一句品牌口号，而是一种权力结构：身份由用户持有，资产不由平台冻结，规则公开可验证，退出无需许可。它不会消灭所有中心，但会限制任何一个中心单方面修改规则的能力。</p>
+              <div class="chronicle-focus-grid">
+                <div><b>01</b><span>身份自主</span><p>钱包取代平台账号，私钥控制访问权。</p></div>
+                <div><b>02</b><span>资产自持</span><p>资产记录在开放账本，可跨应用携带。</p></div>
+                <div><b>03</b><span>规则可验证</span><p>智能合约公开执行，不依赖单一机构。</p></div>
+                <div><b>04</b><span>治理开放</span><p>协议升级与资金使用由更广泛的参与者决定。</p></div>
+              </div>
+              <blockquote>“没有单一中心可以关闭它，才是 Web3 真正区别于 Web2 的地方。”</blockquote>
+            </aside>
+
+            <section class="chronology-section" aria-labelledby="chronology-title">
+              <div class="chronicle-section-head chronology-head">
+                <span class="smallcap">CHRONOLOGY</span>
+                <h2 id="chronology-title">纪年表</h2>
+                <p>按年份排列的关键节点、所属时代，以及它们改变互联网权力结构的方式。</p>
+              </div>
+
+              <div class="chronology-wrap">
+                <table class="chronology-table">
+                  <caption class="sr-only">Web 1.0 至 Web 3.0 的互联网关键事件纪年表</caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">YEAR</th>
+                      <th scope="col">ERA</th>
+                      <th scope="col">MILESTONE</th>
+                      <th scope="col">WHY IT MATTERS</th>
+                    </tr>
+                  </thead>
+                  <tbody id="chronology-body"></tbody>
+                </table>
+              </div>
+            </section>
+
+            <footer class="paper-footer">
+              <a class="paper-nav" href="#/">
+                <span>← BACK TO ARCHIVE</span>
+                <b>root /</b>
+              </a>
+              <div class="paper-footer-center">
+                <a href="#/web1">[ WEB 1.0 ]</a>
+                <a href="#/web2">[ WEB 2.0 ]</a>
+                <a href="#/web3">[ WEB 3.0 ]</a>
+              </div>
+              <a class="paper-nav paper-nav-next" href="#/web3">
+                <span>READ NEXT →</span>
+                <b>web3.0</b>
+              </a>
+            </footer>
+            <p class="paper-eof">— CHRONICLE / 1991—NOW —</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="statusbar">
+      <span class="status-left"><i aria-hidden="true"></i><span id="status-route">INDEX / 03 ENTRIES</span></span>
+      <span class="status-center" aria-hidden="true">UTF-8 · 0 ERRORS</span>
+      <span class="status-right" id="status-hint">ENTER: OPEN · ↑↓: MOVE</span>
+    </footer>
+  </div>
+
+  <noscript>
+    <p class="noscript">需要启用 JavaScript 才能打开目录详情、时间轴与纪年表。</p>
+  </noscript>
+</body>
+</html>
